@@ -257,6 +257,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Move to the urgent workspace
 bindsym $mod+u [urgent=latest] focus
 
+# including gaps
+gaps inner 13
+gaps outer 5
+
+# using scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
 exec_always feh --bg-fill /home/mrinaal/Pictures/Iron-man-3-2.jpg
 exec --no-startup-id compton
 exec --no-startup-id parcellite
