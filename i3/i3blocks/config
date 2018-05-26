@@ -24,7 +24,8 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3blocks/$BLOCK_NAME
+# command=/usr/lib/i3blocks/$BLOCK_NAME
+command=/home/mrinaal/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -37,6 +38,7 @@ markup=none
 # label=VOLUME
 label=
 instance=Master
+# command=/home/mrinaal/.config/i3blocks/volume
 #instance=PCM
 interval=1
 signal=10
@@ -70,14 +72,15 @@ interval=30
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
-#instance=wlan0
+# instance=wlan0
 label=
 color=#00FF00
 interval=10
 separator=false
+# command=/home/mrinaal/.config/i3blocks/iface
 
 [wifi]
-#instance=wlp3s0
+# instance=wlp6s0
 interval=10
 separator=false
 
@@ -107,12 +110,13 @@ interval=1
 # label=⚡
 #instance=1
 interval=1
-command=/home/mrinaal/.config/i3blocks/battery
+# command=/home/mrinaal/.config/i3blocks/battery
 
 # Date Time
 #
 [time]
-command=date '+%a %d-%m-%Y %H:%M:%S'
+# command=date '+%a %d-%m-%Y %H:%M:%S'
+command=date '+%a %d-%m-%Y %r'
 interval=1
 
 # Generic media player support
