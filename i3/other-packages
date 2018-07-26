@@ -7,3 +7,5 @@ xautolock: for auto lock after after some inactivity (see i3 config file)
 parcellite: clipboard manager (see i3 config file)
 redshift: Place the corresponding config file in ~/.config/redshift.conf
 numlockx: for starting numlock on login
+pavucontrol: for audio control panel
+gnome-screenshot: for taking screenshot

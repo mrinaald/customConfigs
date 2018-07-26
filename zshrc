@@ -131,3 +131,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # For disabling touchpad while typing, Make a bash script for this 
 # command and include it in the startup applications
 # syndaemon -i 1 -KRd 
+
+screenfetch
