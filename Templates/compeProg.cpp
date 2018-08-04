@@ -7,6 +7,11 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 
+#define FOR(i,l,h,x) for(i=l; i<h; i+=x)
+#define FORE(i,l,h,x) for(i=l; i<=h; i+=x)
+#define FORNE(i,l,h,x) for(i=l; i!=h; i+=x)
+#define FORIT(i,it) for(i=it.begin(); i!=it.end(); i++)
+
 typedef long long int llong;
 typedef unsigned long long int ullong;
 typedef unsigned long int ulong;
