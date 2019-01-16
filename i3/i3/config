@@ -30,8 +30,11 @@ font pango:DejaVuSansMono Nerd Font Oblique 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# start the file explorer
+bindsym $mod+Return exec nautilus
+
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+t exec i3-sensible-terminal
 bindsym Control+Mod1+t exec i3-sensible-terminal
 
 # kill focused window
@@ -54,6 +57,9 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym Mod1+Tab focus right
+bindsym $mod+Tab focus right
+
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -102,18 +108,18 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
 set $ws2 "2:"
-set $ws3 "3"
+set $ws3 "3:"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
+set $ws8 "8:"
 set $ws9 "9:"
 set $ws10 "10:/"
 
@@ -141,9 +147,11 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# Use xprop to get the class
 assign [class="Firefox"] $ws1
 assign [class="Slack"] $ws9
 assign [class="vlc"] $ws10
+assign [class="Thunderbird"] $ws8
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -237,12 +245,12 @@ bindsym Control+Mod1+l exec --no-startup-id $Locker
 
 # start rofi (a program launcher)
 # bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -padding 800 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "DejaVuSansMono Nerd Font Oblique 11"
-bindsym $mod+d exec rofi -show run -lines 3
+# bindsym $mod+d exec rofi -show run -lines 3
 bindsym $mod+space exec rofi -show run -lines 3
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # For taking screenshot using "Print" Button
@@ -261,14 +269,14 @@ bindsym Print exec gnome-screenshot -i
 bindsym $mod+u [urgent=latest] focus
 
 # including gaps
-gaps inner 13
+gaps inner 5
 gaps outer 5
 
 # using scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
-exec_always feh --bg-fill /home/mrinaal/Pictures/Iron-man-3-2.jpg
+exec_always feh --bg-fill /home/mrinaal/Pictures/585570.png
 exec --no-startup-id compton
 exec --no-startup-id parcellite
 exec --no-startup-id xautolock -time 10 -locker '$Locker'
