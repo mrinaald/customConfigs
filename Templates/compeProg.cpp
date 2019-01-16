@@ -18,7 +18,7 @@ typedef unsigned long int ulong;
 typedef unsigned int uint;
 
 int main(){
-	std::ios::sync_with_stdio(false);
+  std::ios::sync_with_stdio(false);
 
-	return 0;
+  return 0;
 }
