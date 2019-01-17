@@ -10,3 +10,4 @@ numlockx: for starting numlock on login
 pavucontrol: for audio control panel
 gnome-screenshot: for taking screenshot
 dunst: notification manager
+light: screen brightness manager
