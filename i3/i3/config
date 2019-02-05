@@ -114,8 +114,8 @@ bindsym $mod+c focus child
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
 set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4"
+set $ws3 "3:"
+set $ws4 "4:"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -149,9 +149,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Use xprop to get the class
 assign [class="Firefox"] $ws1
+assign [class="Emacs"] $ws3
+assign [class="Thunderbird"] $ws8
 assign [class="Slack"] $ws9
 assign [class="vlc"] $ws10
-assign [class="Thunderbird"] $ws8
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -279,10 +280,22 @@ gaps outer 5
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
-exec_always feh --bg-fill /home/mrinaal/Pictures/585570.png
+# running other applications on startup
+set $imgfile /home/mrinaal/Pictures/ultron-3840x2160-hd-4k-6339.png
+exec_always feh --bg-fill $imgfile
 exec --no-startup-id compton
 exec --no-startup-id parcellite
 exec --no-startup-id xautolock -time 10 -locker '$Locker'
 exec --no-startup-id redshift
 exec --no-startup-id numlockx
 exec --no-startup-id nm-applet
+exec --no-startup-id /home/mrinaal/bin/em
+exec --no-startup-id thunderbird
+
+# Loading a layout for terminals on ws2
+# Layout is saved using i3-save-tree --workspace 2 > /home/mrinaal/.config/i3/layouts/terminals-ws2.json
+# exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/mrinaal/.i3/layouts/terminals-ws2.json'"
+exec --no-startup-id i3-msg workspace $ws2\; append_layout /home/mrinaal/.config/i3/layouts/terminals-ws2.json
+exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id i3-sensible-terminal
