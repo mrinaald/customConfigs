@@ -1,0 +1,40 @@
+* A file where I'll be keeping all the shortcuts/methods for using org-mode
+
+** Some useful shortcuts
+ | Shortcut                          | Description                                                |
+ |-----------------------------------+------------------------------------------------------------|
+ | , t n                             | Insert new table                                           |
+ | S-left/right                      | Cycle through workflow                                     |
+ | C-c C-t                           | Cycle through workflow                                     |
+ | TAB/S-TAB                         | Fold/Unfold a heading                                      |
+ | M-up/down                         | Move up/down a heading                                     |
+ | M-left/right                      | Promote/demote a heading                                   |
+ | M-RET M-RET                       | Add a new headline                                         |
+ | , RET                             | Add a new headline                                         |
+ | , d d                             | set deadline for the current TODO                          |
+ | , d s                             | set schedule for the current TODO                          |
+ | , d t                             | Add date                                                   |
+ | C-c C-n                           | Next heading                                               |
+ | C-c C-p                           | Previous heading                                           |
+ | C-c C-f                           | Next heading on same level                                 |
+ | C-c C-b                           | Previous heading on same level                             |
+ | C-c C-u                           | Backward to higher level heading                           |
+ | SPC SPC org-update-checkbox-count | To update checkbox counts and percentages if there are any |
+ | C-c a                             | Open agenda menu                                           |
+ | , a                               | Open agenda menu                                           |
+ | C-c [                             | add this buffer to agenda list                             |
+ | C-c ]                             | remove this buffer to agenda list                          |
+
+
+** Using Lists
+ - Unordered list starts with one of -, + or *
+ - Ordered list starts with a number and a dot/bracket
+ - Descriptions :: use two colons after the term as used in this point
+
+
+** Using Different Workflow Tags 
+ To use different workflow tags, include this in the beginning of your org file:
+ #+BEGIN_SRC orgmode
+ #+TODO: TODO IN-PROGRESS WAITING | DONE CANCELED
+ #+END_SRC
+ The workflow tags to the right of vertical bar will be time-stamped when used
