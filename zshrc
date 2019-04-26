@@ -132,4 +132,19 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # command and include it in the startup applications
 # syndaemon -i 1 -KRd 
 
-screenfetch
+# a CLI Bash script to show system/theme info
+# screenfetch
+
+# HSTR - https://github.com/dvorka/hstr
+# HSTR configuration (added using $ hstr --show-zsh-configuration >> ~/.zshrc)
+alias hh=hstr                    # hh to be alias for hstr
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export HSTR_CONFIG=hicolor        # get more colors
+bindkey -s "\C-r" "\eqhstr\n"     # bind hstr to Ctrl-r (for Vi mode check doc)
+
+HISTORY_IGNORE="(ls|ls *|cd ..|cd -|cd|pwd|history*|hstr|git *)"
+
+
+# setting environment variables for TAU
+export TAUROOT=$HOME/opt/TAU-install
+export PATH=${TAUROOT}/x86_64/bin:${PATH}
