@@ -529,6 +529,10 @@ before packages are loaded."
 
   (setq-default indent-tabs-mode nil)
 
+  ;; set :q to delete buffer rather than killing frame
+  (evil-ex-define-cmd "q" 'kill-this-buffer)
+  (evil-ex-define-cmd "kill" 'spacemacs/frame-killer)
+
   ;; To print char literals in c/c++
   (setq-default sp-escape-quotes-after-insert nil)
   )
