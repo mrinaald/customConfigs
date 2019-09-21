@@ -1,0 +1,13 @@
+ + *rofi*: for application launcher (see i3 config file)
+ + *lxappearence*: for changing themes and fonts
+ + *feh*: for changing desktop (see i3 config file)
+ + *arandr*: for mananging multiple desktops
+ + *compton*: for transparency and fade effect
+ + *parcellite*: clipboard manager (see i3 config file)
+ + *redshift*: Place the corresponding config file in ~/.config/redshift.conf
+ + *numlockx*: for starting numlock on login
+ + *pavucontrol*: for audio control panel
+ + *gnome-screenshot*: for taking screenshot
+ + *dunst*: notification manager
+ + *light*: screen brightness manager (https://github.com/haikarainen/light#permissions)
+         NOTE:: make sure that your user is part of the ~video~ group
