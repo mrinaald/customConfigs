@@ -281,16 +281,25 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
 # running other applications on startup
-set $imgfile /home/mrinaal/Pictures/ultron-3840x2160-hd-4k-6339.png
+# set $imgfile /home/mrinaal/Pictures/ultron-3840x2160-hd-4k-6339.png
+set $imgfile /home/mrinaal/Pictures/Joker-Wallpaper-for-PC-2560x1600-1920x1080.png
 exec_always feh --bg-fill $imgfile
 exec --no-startup-id compton
 exec --no-startup-id parcellite
-exec --no-startup-id xautolock -time 10 -locker '$Locker'
+
+# setting lock after 20 mins and notify 20 secs before locking
+exec --no-startup-id xautolock -time 20 -locker '$Locker' -notify 20 -notifier "notify-send -u critical -t 10000 'LOCKING screen in 20 seconds'"
+
 exec --no-startup-id redshift
 exec --no-startup-id numlockx
 exec --no-startup-id nm-applet
-exec --no-startup-id /home/mrinaal/bin/em
-exec --no-startup-id thunderbird
+# exec --no-startup-id /home/mrinaal/bin/em
+# exec --no-startup-id thunderbird
+#
+# Changing screen timeout time to 1185 seconds
+exec_always --no-startup-id xset dpms 1185 1185 1185
+exec_always --no-startup-id xset s off
+
 
 # Loading a layout for terminals on ws2
 # Layout is saved using i3-save-tree --workspace 2 > /home/mrinaal/.config/i3/layouts/terminals-ws2.json
