@@ -10,11 +10,12 @@
 # the battery, and eventually its remaining time (to full charge or discharge).
 #
 # The color will gradually change for a percentage below 85%, and the urgency
-# (exit code 33) is set if there is less that 5% remaining.
+# (exit code 33) is set if there is less than 10% remaining.
 
 use strict;
 use warnings;
 use utf8;
+use open ":std", ":encoding(UTF-8)";
 
 my $acpi;
 my $status;
@@ -61,10 +62,10 @@ if ($acpi =~ /(\d\d:\d\d):/) {
 if ($status eq 'Discharging') {
 
 	$label = " ";
+
 	if($percent < 10){
 		$label = " ";
-	}
-	if ($percent < 20) {
+	} elsif ($percent < 20) {
 		# print "#FF0000\n";
 		$label = " ";
 		$color = '#FF0000';
@@ -79,8 +80,12 @@ if ($status eq 'Discharging') {
 	} elsif ($percent < 75) {
 		# print "#A8FF00\n";
 		$label = " ";
-		$color = '#A8FF00';
-	}
+    $color = '#A8FF00';
+	} else{
+      # print "#A8FF00\n";
+      $label = " ";
+      $color = '#A8FF00';
+  }
 
 	print "$label";
 	print "$full_text\n";
@@ -88,7 +93,7 @@ if ($status eq 'Discharging') {
 	print "$color\n";
 
 	if($percent < 10) {
-		system("notify-send 'Battery Low!!! Please connect charger'");
+		system("notify-send -t 1 --icon=battery-low 'WARNING: Battery Low!!! Please connect charger'");
 		exit(33);
 	}
 }
