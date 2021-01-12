@@ -1,6 +1,6 @@
  + *rofi*: for application launcher (see i3 config file)
  + *lxappearence*: for changing themes and fonts
- + *feh*: for changing desktop (see i3 config file)
+ + *feh*: for changing desktop (see i3 config file) [Use *nitrogen*]
  + *arandr*: for mananging multiple desktops
  + *compton*: for transparency and fade effect
  + *parcellite*: clipboard manager (see i3 config file)
@@ -9,5 +9,8 @@
  + *pavucontrol*: for audio control panel
  + *gnome-screenshot*: for taking screenshot
  + *dunst*: notification manager
+ + *nitrogen*: Background image manager (replaced feh)
  + *light*: screen brightness manager (https://github.com/haikarainen/light#permissions)
          NOTE:: make sure that your user is part of the ~video~ group
+
+ + Used this blog to support xfce4 packages with i3 (https://feeblenerd.blogspot.com/2015/11/pretty-i3-with-xfce.html)

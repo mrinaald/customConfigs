@@ -31,7 +31,8 @@ font pango:DejaVuSansMono Nerd Font Oblique 8
 floating_modifier $mod
 
 # start the file explorer
-bindsym $mod+Return exec nautilus
+# bindsym $mod+Return exec nautilus
+bindsym $mod+Return exec thunar
 
 # start a terminal
 bindsym $mod+t exec i3-sensible-terminal
@@ -255,7 +256,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # For taking screenshot using "Print" Button
-bindsym Print exec gnome-screenshot -i
+# bindsym Print exec gnome-screenshot -i
+bindsym Print exec xfce4-screenshooter
 
 # Sreen brightness controls
 # use 'xev' to find the key
@@ -273,29 +275,33 @@ bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 bindsym $mod+u [urgent=latest] focus
 
 # including gaps
+for_window [class="^.*"] border pixel 3
 gaps inner 5
 gaps outer 5
+smart_borders on
+smart_gaps on
+client.focused          #00ff00 #285577 #FFFFFF #2222cc   #2222cc
 
 # using scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
 # running other applications on startup
-# set $imgfile /home/mrinaal/Pictures/ultron-3840x2160-hd-4k-6339.png
-set $imgfile /home/mrinaal/Pictures/Joker-Wallpaper-for-PC-2560x1600-1920x1080.png
-exec_always feh --bg-fill $imgfile
+# set $imgfile /home/mrinaal/Pictures/Joker-Wallpaper-for-PC-2560x1600-1920x1080.png
+# exec_always feh --bg-fill $imgfile
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 exec --no-startup-id parcellite
 
 # setting lock after 20 mins and notify 20 secs before locking
-exec --no-startup-id xautolock -time 20 -locker '$Locker' -notify 20 -notifier "notify-send -u critical -t 10000 'LOCKING screen in 20 seconds'"
+exec --no-startup-id xautolock -time 20 -locker '$Locker' -notify 20 -notifier "notify-send -t 20000 --icon=dialog-warning 'LOCKING screen in 20 seconds'"
 
 exec --no-startup-id redshift
 exec --no-startup-id numlockx
 exec --no-startup-id nm-applet
 # exec --no-startup-id /home/mrinaal/bin/em
 # exec --no-startup-id thunderbird
-#
+
 # Changing screen timeout time to 1185 seconds
 exec_always --no-startup-id xset dpms 1185 1185 1185
 exec_always --no-startup-id xset s off
@@ -304,7 +310,10 @@ exec_always --no-startup-id xset s off
 # Loading a layout for terminals on ws2
 # Layout is saved using i3-save-tree --workspace 2 > /home/mrinaal/.config/i3/layouts/terminals-ws2.json
 # exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/mrinaal/.i3/layouts/terminals-ws2.json'"
-exec --no-startup-id i3-msg workspace $ws2\; append_layout /home/mrinaal/.config/i3/layouts/terminals-ws2.json
+# exec --no-startup-id i3-msg workspace $ws2\; append_layout /home/mrinaal/.config/i3/layouts/terminals-ws2.json
+# exec --no-startup-id i3-msg workspace $ws2\; append_layout /home/mrinaal/.config/i3/layouts/workspace-2.json
+exec --no-startup-id i3-msg "workspace $ws2; append_layout /home/mrinaal/.config/i3/layouts/workspace-2.json"
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
