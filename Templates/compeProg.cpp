@@ -13,11 +13,12 @@ typedef unsigned long int ulong;
 typedef unsigned int uint;
 
 int main(){
-  // - Use cin, cout for Faster I/O.
-  // - Use cout << endl only when you want to flush the output forcefully
-  // Ref: https://www.geeksforgeeks.org/fast-io-for-competitive-programming/
-  std::ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
+    // - Use cin, cout for Faster I/O.
+    // - Use cout << endl only when you want to flush the output forcefully
+    // Ref: https://www.geeksforgeeks.org/fast-io-for-competitive-programming/
+    std::ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-  return 0;
+    cout << std::flush;
+    return 0;
 }

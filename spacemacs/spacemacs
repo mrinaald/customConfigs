@@ -51,16 +51,17 @@ This function should only modify configuration layer settings."
                       auto-completion-tab-key-behavior 'complete)
 
      better-defaults
-     emacs-lisp
-     git
+     emacs-lisp     ;; Never remove this (according to documentation)
+     common-lisp
+     ;; git
      markdown
-     javascript
+     ;; javascript
      yaml
-     sql
+     ;; sql
      html
      markdown
      python
-     php
+     ;; php
 
      ;; Used the bellow readme for go layer
      ;; http://develop.spacemacs.org/layers/+lang/go/README.html
@@ -87,7 +88,7 @@ This function should only modify configuration layer settings."
             shell-default-height 30
             shell-default-position 'bottom)
 
-     solidity     ;; https://github.com/sei40kr/spacemacs-solidity
+     ;; solidity     ;; https://github.com/sei40kr/spacemacs-solidity
 
      octave
 
@@ -527,7 +528,10 @@ before packages are loaded."
   (setq x-select-enable-clipboard nil)
   (setq select-enable-clipboard nil)
 
-  (setq-default indent-tabs-mode nil)
+  ;; Modify C/C++ indentation settings
+  (setq-default c-default-style "linux"
+                c-basic-offset 4
+                indent-tabs-mode nil)
 
   ;; set :q to delete buffer rather than killing frame
   (evil-ex-define-cmd "q" 'kill-this-buffer)
@@ -550,6 +554,18 @@ before packages are loaded."
 
   ;; To print char literals in c/c++
   (setq-default sp-escape-quotes-after-insert nil)
+
+  ;; ;; To change implementation of common-lisp
+  (setq inferior-lisp-program "/usr/bin/clisp")
+
+  ;; ;; To enable evil-clearparens while using common-lisp mode
+  (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hook-common-lisp-mode)
+
+  ;; ;; To make comments in octave similar to that of MATLAB
+  (add-hook 'octave-mode-hook
+            (lambda () (progn (setq octave-comment-char ?%)
+                              (setq comment-start "% ")
+                              (setq comment-add 0))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -565,8 +581,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode visual-fill-column winum wgrep web-mode web-beautify volatile-highlights vimrc-mode vi-tilde-fringe uuidgen unfill treemacs-projectile treemacs-evil treemacs ht pfuture toc-org tagedit symon string-inflection sql-indent spaceline-all-the-icons spaceline powerline solidity-mode smex smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pyvenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets persp-mode password-generator paradox spinner ox-gfm overseer orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-bullets org-brain open-junk-file nameless mwim multi-term move-text mmm-mode markdown-toc markdown-mode magit-svn magit-gitflow magit-popup macrostep lorem-ipsum livid-mode skewer-mode live-py-mode link-hint json-navigator hierarchy json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc ivy-yasnippet ivy-xref ivy-rtags ivy-purpose window-purpose imenu-list ivy-hydra indent-guide importmagic epc ctable concurrent deferred impatient-mode simple-httpd hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make haml-mode google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flycheck-rtags flycheck-pos-tip flycheck flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit magit transient git-commit with-editor evil-lisp-state evil-lion evil-indent-plus evil-iedit-state iedit evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens smartparens paredit evil-args evil-anzu anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode doom-modeline shrink-path disaster diff-hl define-word dactyl-mode cython-mode counsel-projectile projectile pkg-info epl counsel-css counsel swiper ivy company-web web-completion-data company-tern dash-functional tern company-statistics company-rtags rtags company-quickhelp pos-tip company-php ac-php-core xcscope php-mode company-go go-mode company-c-headers company-anaconda company column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode browse-at-remote auto-yasnippet yasnippet auto-highlight-symbol auto-compile packed anaconda-mode pythonic f dash s all-the-icons memoize aggressive-indent ace-window ace-link avy ac-ispell auto-complete popup which-key use-package pcre2el org-plus-contrib hydra lv font-lock+ evil goto-chg undo-tree dotenv-mode diminish bind-map bind-key async))))
+   '(smeargle orgit magit-svn magit-gitflow magit-popup gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter evil-magit magit git-commit with-editor transient diff-hl browse-at-remote yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum which-key wgrep web-mode web-beautify volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package unfill treemacs-projectile treemacs-evil toc-org tagedit symon string-inflection sql-indent spaceline-all-the-icons smex slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox ox-gfm overseer org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file nameless mwim multi-term move-text mmm-mode markdown-toc macrostep lorem-ipsum live-py-mode link-hint ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra indent-guide importmagic impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gh-md fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline disaster diminish define-word dactyl-mode cython-mode counsel-projectile counsel-css company-web company-statistics company-rtags company-quickhelp company-go company-c-headers company-anaconda column-enforce-mode clean-aindent-mode clang-format centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-link ac-ispell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
