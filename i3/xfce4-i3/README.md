@@ -50,7 +50,8 @@ Everything is set now. Logout from the current session (remember to ensure that 
 
 
 ### Other details:
-At the time of writing this document, the `lightdm` desktop manager was used which provided the login screen application.
+- At the time of writing this document, the `lightdm` desktop manager was used which provided the login screen application.
+- To change the wallpaper, copy the image file in `/usr/share/backgrounds/` and use the `Default` XFCE4 session to update the wallpaper both in `nitrogen` as well as in xfce4 settings GUI. Once done, you need to save the default session again for changes to take affect across i3 session as well.
 
 
 ### References
