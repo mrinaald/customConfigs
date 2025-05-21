@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/mrinaal/.oh-my-zsh
+export ZSH=/home/<username>/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -122,7 +122,7 @@ source $ZSH/oh-my-zsh.sh
 # For syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# DEFAULT_USER='mrinaal'
+# DEFAULT_USER='<username>'
 
 # For powerline fonts
 #powerline-daemon -q
@@ -144,6 +144,7 @@ bindkey -s "\C-r" "\eqhstr\n"     # bind hstr to Ctrl-r (for Vi mode check doc)
 
 HISTORY_IGNORE="(ls|ls *|cd ..|cd -|cd|pwd|history*|hstr|em|subl|./a.out)"
 
+export PATH=/home/<username>/bin:${PATH}
 
 # # setting environment variables for TAU
 # export TAUROOT=$HOME/opt/TAU-install
@@ -155,3 +156,19 @@ export GOPATH=$HOME/go
 export GOROOT=$(go env GOROOT)
 export GOTOOLDIR=$(go env GOTOOLDIR)
 export PATH=${PATH}:${GOPATH}/bin
+
+# RPI4
+# export RPI_IP=<IPV4>
+# export RPI=<username>@${RPI_IP}
+
+export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
+
+# Git Token based authentication
+# Use the following command to add GIT_TOKEN variable in global git config
+# git config --global credential.helper '!f() { echo username=<username>; echo "password=$GIT_TOKEN"; }; f'
+alias git-authenticate="export GIT_TOKEN=`cat <TOKEN_FILE>`"
+
