@@ -1,0 +1,50 @@
+" **************************************************************
+" Configurations
+" **************************************************************
+syntax on
+set t_Co=256
+set background=dark
+" colorscheme harlequin
+set number
+set ruler
+set hlsearch
+set mouse=a
+set nowrap
+filetype plugin indent on
+filetype plugin on
+
+" Changing <leader> key to ','
+let mapleader = ","
+
+" Set Proper Tabs
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+
+" To show which command is typed
+set showcmd
+
+" Enable highlighting of the current line
+set cursorline
+
+" Enable Syntax Highlighting
+syntax on
+
+set encoding=UTF-8
+
+nmap <C-o> :tabnew 
+nmap <C-h> :tabp<CR>
+nmap <C-l> :tabn<CR>
+nmap <C-j> :tabfirst<CR>
+nmap <C-k> :tablast<CR>
+
+" ************* disable arrow keys *****************************
+let g:arrow_resize_mode=1
+" Disable arrow movement, resize splits instead.
+if get(g:, 'arrow_resize_mode')
+	nnoremap <Up>    :resize +2<CR>
+	nnoremap <Down>  :resize -2<CR>
+	nnoremap <Left>  :vertical resize +2<CR>
+	nnoremap <Right> :vertical resize -2<CR>
+endif
